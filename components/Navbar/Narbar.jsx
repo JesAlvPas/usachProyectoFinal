@@ -23,7 +23,7 @@ export default function Header() {
           </Link>
 
           <Link
-            href="/productos"
+            href="/product"
             className="text-black/80 transition hover:text-amber-400"
           >
             Productos
