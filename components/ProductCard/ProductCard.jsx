@@ -1,13 +1,18 @@
-import React from 'react';
 import Image from 'next/image';
 
-const ProductCard = ({ product }) => {
-  const { name, subtitle, price, originalPrice, discountPercentage, imageUrl, altText } = product;
+const ProductCard = ({ name,imageUrl}) => {
+  // const { name, subtitle, price, imageUrl, altText } = product;
+
+  const subtitle = 'Stylish cafe chair';
+  const price =2500000;
+  // const imageUrl = 'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=600&auto=format&fit=crop'; // O la ruta de tu imagen local
+  const altText = 'Stylish cafe chair';
+
 
   return (
     <div className="group relative w-full overflow-hidden border border-gray-200 bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
       {/* Product Image and Discount Badge */}
-      <div className="relative aspect-16/20 w-full overflow-hidden">
+      <div className="relative aspect-20/20 w-full overflow-hidden">
         <Image 
           src={imageUrl} 
           alt={altText} 
@@ -15,31 +20,11 @@ const ProductCard = ({ product }) => {
           objectFit="cover" 
           className="transition-opacity duration-300 group-hover:opacity-60" 
         />
-        {discountPercentage && (
-          <span className="absolute top-4 right-4 bg-red-400 text-white text-sm font-semibold rounded-full w-12 h-12 flex items-center justify-center">
-            -{discountPercentage}%
-          </span>
-        )}
-
         {/* Hover Action Overlay */}
         <div className="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col items-center justify-center space-y-6">
-          <button className="bg-white text-yellow-600 font-semibold px-8 py-3 rounded shadow hover:bg-gray-100 transition-colors">
-            Add to cart
+          <button className="bg-white text-yellow-600 font-semibold px-8 py-3 rounded shadow hover:bg-gray-100 transition-colors cursor-pointer ">
+            Ver producto
           </button>
-          <div className="flex space-x-6 text-white text-sm font-semibold">
-            <button className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
-              <span className="text-lg">🔄</span> 
-              <span>Share</span>
-            </button>
-            <button className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
-              <span className="text-lg">⚖️</span> 
-              <span>Compare</span>
-            </button>
-            <button className="flex items-center space-x-2 hover:text-yellow-400 transition-colors">
-              <span className="text-lg">❤️</span> 
-              <span>Like</span>
-            </button>
-          </div>
         </div>
       </div>
 
@@ -53,13 +38,8 @@ const ProductCard = ({ product }) => {
         </p>
         <div className="flex items-center justify-between pt-2">
           <span className="text-2xl font-semibold text-gray-900 group-hover:text-gray-700 transition-colors">
-            Rp {price.toLocaleString('id-ID')}
+            $ {price.toLocaleString('id-ID')}
           </span>
-          {originalPrice && (
-            <span className="text-lg text-gray-400 line-through group-hover:text-gray-300 transition-colors">
-              Rp {originalPrice.toLocaleString('id-ID')}
-            </span>
-          )}
         </div>
       </div>
     </div>
