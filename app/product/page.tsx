@@ -1,43 +1,51 @@
 
+import { Suspense } from 'react'
 import BannerProduct from '../../components/BannerProduct/BannerProduct'
-import ProductCard from '../../components/ProductCard/ProductCard'
+import ProductGrid from '../../components/ProductGrid/ProductGrid'
 import Pagination from '../../components/Pagination/Pagination'
+import { ProductGridSkeleton } from '../../components/ProductCard/ProductCardSkeleton'
 import { getProducts } from '@/lib/API/products'
 
+async function ProductListContent({ currentPage }) {
+    const LIMIT = 12;
+    const data = await getProducts(currentPage, LIMIT);
+    const productList = data?.products || [];
+    const totalProducts = data?.total || 0;
+    const totalPages = Math.ceil(totalProducts / LIMIT);
 
-// const productData = {
-//     name: 'Syltherine',
-//     subtitle: 'Stylish cafe chair',
-//     price: 2500000,
-//     originalPrice: 3500000,
-//     discountPercentage: 30,
-//     imageUrl: 'https://images.unsplash.com/photo-1592078615290-033ee584e267?q=80&w=600&auto=format&fit=crop', // O la ruta de tu imagen local
-//     altText: 'Stylish cafe chair',
-// };
+    if (productList.length === 0) {
+        return (
+            <p className="text-center text-gray-500 my-10 text-sm sm:text-base">
+                No se encontraron productos.
+            </p>
+        );
+    }
 
-async function Product() {
-    const products = await getProducts();
-    console.log(products);
     return (
-        <div>
-            <BannerProduct />
+        <>
+            <ProductGrid productList={productList} />
 
-            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-                    {/* <ProductCard product={productData} /> */}
-                    {products.map(product => <ProductCard name={product.title} imageUrl={product.images[0]} />)}
-                  
-
-
-                </div>
-                <Pagination
-                    currentPage={1}
-                    totalPages={6}
-                    onPageChange={1}
-                />
-            </div>
-        </div>
-    )
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+            />
+        </>
+    );
 }
 
-export default Product
+export default async function Product({ searchParams }) {
+    const resolvedParams = await searchParams;
+    const currentPage = Number(resolvedParams?.page) || 1;
+
+    return (
+        <div className="w-full min-h-screen overflow-x-hidden">
+            <BannerProduct />
+
+            <div className="w-full max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-4 sm:py-8">
+                <Suspense key={currentPage} fallback={<ProductGridSkeleton count={12} />}>
+                    <ProductListContent currentPage={currentPage} />
+                </Suspense>
+            </div>
+        </div>
+    );
+}
