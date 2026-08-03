@@ -6,18 +6,23 @@ function Footer() {
   return (
     <footer className="bg-white border-t border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center items-start">
           
-          {/* Columna Marca */}
-          <div>
+
+          {/* TITULO */}
+
+          <div className="flex flex-col items-center">
             <h3 className="text-xl font-bold mb-3 text-gray-900">MARCA</h3>
             <p className="text-gray-500">
               Región Metropolitana - Santiago de Chile
             </p>
           </div>
 
-          {/* Columna Links */}
-          <div>
+
+            {/*Links*/}
+
+          <div className="flex flex-col items-center">
             <h6 className="text-gray-400 font-bold mb-3 text-sm uppercase tracking-wider">
               Link
             </h6>
@@ -28,7 +33,7 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/productos" className="text-gray-700 hover:text-black transition-colors">
+                <Link href="/product" className="text-gray-700 hover:text-black transition-colors">
                   Productos
                 </Link>
               </li>
@@ -48,7 +53,8 @@ function Footer() {
         </div>
 
         <hr className="my-8 border-gray-200" />
-        <p className="text-gray-500 text-sm">
+        
+        <p className="text-gray-500 text-sm text-center">
           2026 MARCA. Todos los derechos reservados.
         </p>
       </div>
