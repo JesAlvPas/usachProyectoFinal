@@ -1,7 +1,7 @@
-// lib/API/products.js
-export async function getProducts(limit = 4) {
+export async function getProducts(page = 1, limit = 12) {
   try {
-    const res = await fetch(`https://dummyjson.com/products?limit=${limit}`, {
+    const skip = (page - 1) * limit;
+    const res = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`, {
       next: { revalidate: 3600 }
     });
 
@@ -10,9 +10,10 @@ export async function getProducts(limit = 4) {
     }
 
     const data = await res.json();
-    return data.products; // Devuelve el arreglo de productos
+    // Devuelve el objeto completo con { products, total, skip, limit }
+    return data;
   } catch (error) {
     console.error("Fetch Error:", error);
-    return [];
+    return { products: [], total: 0 };
   }
 }

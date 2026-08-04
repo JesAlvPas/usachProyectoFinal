@@ -35,7 +35,7 @@ function Hero() {
           </p>
           
           <Link 
-            href="/productos" 
+            href="/product" 
             className="inline-block w-full sm:w-auto bg-[#B88E2F] hover:bg-[#a07a27] text-white font-bold px-8 py-4 rounded-lg transition-colors text-center"
           >
             COMPRAR AHORA

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Mapeamos los nombres a las categorías reales de la API DummyJSON
+
 const collectionCategories = [
   { name: 'Comedor', category: 'kitchen-accessories' },
   { name: 'Sala de Estar', category: 'furniture' },
