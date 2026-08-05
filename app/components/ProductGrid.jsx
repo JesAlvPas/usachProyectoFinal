@@ -42,6 +42,7 @@ export default function ProductGrid({ productList }) {
             {productList.map((product, index) => (
                 <ProductCard
                     key={product.id}
+                    id={product.id}
                     name={product.title}
                     imageUrl={product.thumbnail}
                     subtitle={product.category}
