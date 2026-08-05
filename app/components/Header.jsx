@@ -6,7 +6,6 @@ import Image from "next/image";
 import { CartContext } from "../context/CartContext";
 import { AuthContext } from "../context/AuthContext";
 
-
 function Header() {
   const { isLogged } = useContext(AuthContext);
   const { cart } = useContext(CartContext);
@@ -19,11 +18,12 @@ function Header() {
         <div className="flex items-center justify-between h-16">
 
 
+          {/* LOGO */}
 
           <Link href="/" className="text-2xl font-bold text-gray-900 tracking-tight">
             <Image
               src="/img/Navbar/Logo.svg"
-              alt="Logo de la empresa"
+              alt="Company Logo"
               width={150}
               height={40}
               priority
@@ -31,29 +31,33 @@ function Header() {
           </Link>
 
 
+          {/* NAVEGACIÓN DESKTOP */}
 
           <nav className="hidden md:flex space-x-8 font-medium text-gray-700">
-            <Link href="/" className="hover:text-black transition-colors">Inicio</Link>
-            <Link href="/product" className="hover:text-black transition-colors">Productos</Link>
-            <Link href="/nosotros" className="hover:text-black transition-colors">Nosotros</Link>
-            <Link href="/contacto" className="hover:text-black transition-colors">Contacto</Link>
+            <Link href="/" className="hover:text-black transition-colors">Home</Link>
+            <Link href="/product" className="hover:text-black transition-colors">Products</Link>
+            <Link href="/nosotros" className="hover:text-black transition-colors">About Us</Link>
+            <Link href="/contact" className="hover:text-black transition-colors">Contact</Link>
           </nav>
 
+
+          {/* ICONOS Y ACCIONES */}
+
           <div className="flex items-center space-x-6">
-            <Link href={isLogged ? "/profile" : "/login"} className="text-xl text-gray-700 hover:text-black">
+            <Link href={isLogged ? "/profile" : "/login"} className="text-xl text-gray-700 hover:text-black" title="User Account">
               <Image
                 src="/img/Navbar/icons/login.svg"
-                alt="Logo de la empresa"
+                alt="User Icon"
                 width={24}
                 height={22}
                 priority
               />
             </Link>
 
-            <Link href="/cart" className="relative text-xl text-gray-700 hover:text-black">
+            <Link href="/cart" className="relative text-xl text-gray-700 hover:text-black" title="Shopping Cart">
               <Image
                 src="/img/Navbar/icons/carrito.svg"
-                alt="Logo de la empresa"
+                alt="Cart Icon"
                 width={24}
                 height={22}
                 priority
@@ -66,23 +70,26 @@ function Header() {
             </Link>
 
 
-            {/* MENU DESPLEGABLE */}
+            {/* BOTÓN */}
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-gray-700 focus:outline-none text-2xl"
+              className="md:hidden text-gray-700 focus:outline-none text-2xl cursor-pointer"
             >
               ☰
             </button>
           </div>
         </div>
 
+
+        {/* NAVEGACIÓN MÓVIL */}
+
         {isOpen && (
           <nav className="md:hidden pb-4 pt-2 space-y-2 border-t border-gray-100">
-            <Link href="/" className="block py-1 text-gray-700 hover:text-black">Inicio</Link>
-            <Link href="/product" className="block py-1 text-gray-700 hover:text-black">Productos</Link>
-            <Link href="/nosotros" className="block py-1 text-gray-700 hover:text-black">Nosotros</Link>
-            <Link href="/contacto" className="block py-1 text-gray-700 hover:text-black">Contacto</Link>
+            <Link href="/" className="block py-1 text-gray-700 hover:text-black">Home</Link>
+            <Link href="/product" className="block py-1 text-gray-700 hover:text-black">Products</Link>
+            <Link href="/nosotros" className="block py-1 text-gray-700 hover:text-black">About Us</Link>
+            <Link href="/contact" className="block py-1 text-gray-700 hover:text-black">Contact</Link>
           </nav>
         )}
       </div>

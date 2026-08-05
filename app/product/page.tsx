@@ -5,6 +5,9 @@ import Pagination from '../components/Pagination.jsx';
 import { ProductGridSkeleton } from '../components/ProductCardSkeleton.jsx';
 import { getProducts } from '../API/Products.js';
 
+
+// Obtencion y renderizar los productos
+
 async function ProductListContent({ currentPage }: { currentPage: number }) {
   const LIMIT = 12;
   const data = await getProducts(currentPage, LIMIT);
@@ -12,10 +15,13 @@ async function ProductListContent({ currentPage }: { currentPage: number }) {
   const totalProducts = data?.total || 0;
   const totalPages = Math.ceil(totalProducts / LIMIT);
 
+
+  // Mensaje cuando la lista esté vacía
+
   if (productList.length === 0) {
     return (
       <p className="text-center text-gray-500 my-10 text-sm sm:text-base">
-        No se encontraron productos.
+        No products found.
       </p>
     );
   }
@@ -27,6 +33,9 @@ async function ProductListContent({ currentPage }: { currentPage: number }) {
     </>
   );
 }
+
+
+// Vista principal de Productos
 
 export default async function Product({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const resolvedParams = await searchParams;
