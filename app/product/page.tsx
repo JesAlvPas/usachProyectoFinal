@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "Furniro",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://usach-proyecto-final.vercel.app/img/og-image.png",
         width: 1200,
         height: 630,
         alt: "Furniro - Catálogo de productos",

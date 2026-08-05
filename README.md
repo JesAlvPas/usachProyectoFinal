@@ -35,7 +35,7 @@ La aplicación quedará disponible en `http://localhost:3000`.
 
 ## URL de producción
 
-⏳ Pendiente de despliegue.
+[Url en vercel](https://usach-proyecto-final.vercel.app/)
 
 ## Conflictos resueltos
 
