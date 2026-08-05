@@ -8,7 +8,9 @@ import { CartContext } from '../context/CartContext';
 export default function CartPage() {
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext) as any;
 
+
   // Cálculo del subtotal y total
+  
   const subtotal = cart?.reduce(
     (acc: number, item: any) => acc + item.price * (item.count || item.quantity || 1),
     0
@@ -17,7 +19,9 @@ export default function CartPage() {
   return (
     <div className="bg-white font-sans text-gray-800 w-full">
       
-      {/* 1. BANNER SUPERIOR */}
+
+      {/*BANNER SUPERIOR */}
+
       <div className="relative h-48 w-full flex flex-col items-center justify-center bg-[url('/hero.avif')] bg-cover bg-center">
         <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
         <div className="relative z-10 text-center">
@@ -29,23 +33,27 @@ export default function CartPage() {
         </div>
       </div>
 
-      {/* 2. CONTENIDO PRINCIPAL DEL CARRITO (ESPACIADO COMPACTO DE PY-6) */}
+
+      {/*CONTENIDO PRINCIPAL*/}
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 pb-10">
         {!cart || cart.length === 0 ? (
           <div className="text-center py-10 border-2 border-dashed border-gray-200 rounded-xl my-2">
-            <p className="text-2xl font-semibold text-gray-600 mb-2">Tu carrito está vacío 🛒</p>
-            <p className="text-gray-400 mb-6">Aún no has agregado ningún producto a tu lista.</p>
+            <p className="text-2xl font-semibold text-gray-600 mb-2">Your cart is empty 🛒</p>
+            <p className="text-gray-400 mb-6">You haven't added any products to your list yet.</p>
             <Link
               href="/product"
               className="inline-block border border-[#B88E2F] text-[#B88E2F] font-bold px-8 py-3 rounded-md hover:bg-[#B88E2F] hover:text-white transition-colors"
             >
-              Ir a la tienda
+              Go to shop
             </Link>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
+
             {/* TABLA DE PRODUCTOS */}
+
             <div className="lg:col-span-2 overflow-x-auto">
               <div className="bg-[#F9F1E7] grid grid-cols-12 gap-4 py-3 px-6 font-semibold text-sm text-black rounded-sm mb-4 text-center">
                 <span className="col-span-5 text-left">Product</span>
@@ -65,7 +73,9 @@ export default function CartPage() {
                       key={item.id}
                       className="grid grid-cols-12 gap-4 items-center px-2 py-2 text-sm text-gray-500 text-center"
                     >
+
                       {/* Imagen y Nombre */}
+
                       <div className="col-span-5 flex items-center gap-4 text-left">
                         <div className="relative w-16 h-16 bg-[#F9F1E7] rounded-lg overflow-hidden flex-shrink-0">
                           <Image
@@ -78,12 +88,16 @@ export default function CartPage() {
                         <span className="text-gray-500 font-medium">{item.title || item.name}</span>
                       </div>
 
+
                       {/* Precio Unitario */}
+
                       <span className="col-span-2 text-gray-500">
                         ${item.price.toLocaleString()}
                       </span>
 
-                      {/* CONTADOR DE CANTIDAD (+ / -) */}
+
+                      {/* CONTADOR */}
+
                       <div className="col-span-2 flex justify-center items-center">
                         <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
                           <button
@@ -106,12 +120,16 @@ export default function CartPage() {
                         </div>
                       </div>
 
+
                       {/* Subtotal */}
+
                       <span className="col-span-2 text-black font-semibold">
                         ${itemSubtotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                       </span>
 
-                      {/* Papelera */}
+
+                      {/* Botón de Papelera */}
+
                       <div className="col-span-1 flex justify-center">
                         <button
                           onClick={() => removeFromCart && removeFromCart(item.id)}
@@ -129,7 +147,9 @@ export default function CartPage() {
               </div>
             </div>
 
-            {/* RESUMEN (CART TOTALS) */}
+
+            {/* RESUMEN DEL CARRITO */}
+
             <div className="bg-[#F9F1E7] p-6 rounded-md text-center">
               <h2 className="text-2xl font-bold text-black mb-6">Cart Totals</h2>
 

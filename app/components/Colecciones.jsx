@@ -5,10 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 
+// Categorías
+
 const collectionCategories = [
-  { name: 'Comedor', category: 'kitchen-accessories' },
-  { name: 'Sala de Estar', category: 'furniture' },
-  { name: 'Dormitorio', category: 'home-decoration' },
+  { name: 'Dining', category: 'kitchen-accessories' },
+  { name: 'Living Room', category: 'furniture' },
+  { name: 'Bedroom', category: 'home-decoration' },
 ];
 
 export default function Colecciones() {
@@ -40,21 +42,27 @@ export default function Colecciones() {
     loadImages();
   }, []);
 
+
+  // Estado de carga (Loading)...
+
   if (loading) {
     return (
       <section className="py-16 px-4 max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800">Nuestras Colecciones</h2>
-        <p className="text-gray-500 mt-2">Cargando colecciones...</p>
+        <h2 className="text-3xl font-bold text-gray-800">Our Collections</h2>
+        <p className="text-gray-500 mt-2">Loading collections...</p>
       </section>
     );
   }
 
   return (
     <section className="py-16 px-4 max-w-7xl mx-auto text-center">
-      <h2 className="text-3xl font-bold text-gray-800">Nuestras Colecciones</h2>
+      <h2 className="text-3xl font-bold text-gray-800">Our Collections</h2>
       <p className="text-gray-500 mt-2 mb-10">
-        Diseños pensados para inspirar cada rincón de tu hogar.
+        Designs crafted to inspire every corner of your home.
       </p>
+
+
+      {/*COLECCION */}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {collections.map((item, index) => (
@@ -66,10 +74,11 @@ export default function Colecciones() {
             <div className="relative w-full h-[480px] rounded-xl overflow-hidden shadow-sm transition-transform duration-300 group-hover:scale-[1.02] bg-gray-100">
               {item.image && (
                 <Image 
-                  src={item.image} 
-                  alt={item.name} 
-                  fill 
-                  className="object-cover group-hover:opacity-90 transition-opacity" 
+                   src={item.image} 
+                   alt={item.name} 
+                   fill 
+                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 33vw"
+                   className="object-cover group-hover:opacity-90 transition-opacity" 
                 />
               )}
             </div>

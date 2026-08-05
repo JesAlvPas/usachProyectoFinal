@@ -12,7 +12,6 @@ export default function ContactPage() {
     setSubmitted(true);
   };
 
-
   const handleReset = () => {
     setForm({ name: '', email: '', subject: '', message: '' });
     setSubmitted(false);
@@ -27,10 +26,10 @@ export default function ContactPage() {
       <div className="relative h-60 w-full flex flex-col items-center justify-center bg-[#F9F1E7]">
         <div className="relative z-10 text-center">
           <div className="text-3xl text-[#B88E2F] mb-1 font-bold">☖</div>
-          <h1 className="text-4xl font-semibold text-black">Contacto</h1>
+          <h1 className="text-4xl font-semibold text-black">Contact</h1>
           <p className="mt-2 text-sm text-gray-600">
-            <Link href="/" className="font-bold text-black hover:underline">Inicio</Link> &gt;{' '}
-            <span className="text-gray-500">Contacto</span>
+            <Link href="/" className="font-bold text-black hover:underline">Home</Link> &gt;{' '}
+            <span className="text-gray-500">Contact</span>
           </p>
         </div>
       </div>
@@ -40,9 +39,9 @@ export default function ContactPage() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center max-w-xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold text-black mb-3">Ponte en Contacto con Nosotros</h2>
+          <h2 className="text-3xl font-bold text-black mb-3">Get In Touch With Us</h2>
           <p className="text-gray-500 text-sm">
-            Para más información sobre nuestros productos y servicios, no dudes en enviarnos un mensaje. ¡Nuestro equipo estará encantado de ayudarte!
+            For more information about our products and services, please feel free to send us a message. Our team will be happy to help you!
           </p>
         </div>
 
@@ -55,7 +54,7 @@ export default function ContactPage() {
             <div className="flex items-start gap-4">
               <span className="text-xl text-black mt-1">📍</span>
               <div>
-                <h3 className="font-bold text-black text-lg mb-1">Dirección</h3>
+                <h3 className="font-bold text-black text-lg mb-1">Address</h3>
                 <p className="text-sm text-gray-600 max-w-xs leading-relaxed">
                   Providencia 745, Santiago, Chile
                 </p>
@@ -65,18 +64,18 @@ export default function ContactPage() {
             <div className="flex items-start gap-4">
               <span className="text-xl text-black mt-1">📞</span>
               <div>
-                <h3 className="font-bold text-black text-lg mb-1">Teléfono</h3>
-                <p className="text-sm text-gray-600">Móvil: +56 9 8765 4321</p>
-                <p className="text-sm text-gray-600">Mesa Central: +56 2 2345 6789</p>
+                <h3 className="font-bold text-black text-lg mb-1">Phone</h3>
+                <p className="text-sm text-gray-600">Mobile: +56 9 8765 4321</p>
+                <p className="text-sm text-gray-600">Hotline: +56 2 2345 6789</p>
               </div>
             </div>
 
             <div className="flex items-start gap-4">
               <span className="text-xl text-black mt-1">⏰</span>
               <div>
-                <h3 className="font-bold text-black text-lg mb-1">Horario de Atención</h3>
-                <p className="text-sm text-gray-600">Lunes a Viernes: 9:00 - 20:00</p>
-                <p className="text-sm text-gray-600">Sábado y Domingo: 10:00 - 18:00</p>
+                <h3 className="font-bold text-black text-lg mb-1">Working Time</h3>
+                <p className="text-sm text-gray-600">Monday-Friday: 9:00 - 20:00</p>
+                <p className="text-sm text-gray-600">Saturday-Sunday: 10:00 - 18:00</p>
               </div>
             </div>
           </div>
@@ -87,23 +86,23 @@ export default function ContactPage() {
           <div className="bg-white p-2">
             {submitted ? (
               <div className="bg-[#F9F1E7] border border-[#B88E2F] p-8 rounded-xl text-center">
-                <h3 className="text-xl font-bold text-black mb-2">¡Mensaje Enviado!</h3>
-                <p className="text-gray-600 text-sm">Gracias por contactarnos. Te responderemos a la brevedad.</p>
+                <h3 className="text-xl font-bold text-black mb-2">Message Sent!</h3>
+                <p className="text-gray-600 text-sm">Thank you for contacting us. We will get back to you shortly.</p>
                 <button
                   onClick={handleReset}
                   className="mt-6 bg-[#B88E2F] text-white px-6 py-2 rounded-md font-medium text-sm hover:bg-[#a07a27] transition-colors cursor-pointer"
                 >
-                  Enviar otro mensaje
+                  Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Tu Nombre</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Your Name</label>
                   <input
                     type="text"
                     required
-                    placeholder="Ej: Juan Pérez"
+                    placeholder="e.g. John Doe"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:border-black text-sm bg-white"
@@ -111,11 +110,11 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Correo Electrónico</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Email Address</label>
                   <input
                     type="email"
                     required
-                    placeholder="ejemplo@correo.cl"
+                    placeholder="example@email.com"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:border-black text-sm bg-white"
@@ -123,10 +122,10 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Asunto</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Subject</label>
                   <input
                     type="text"
-                    placeholder="Asunto de tu consulta (opcional)"
+                    placeholder="This is optional"
                     value={form.subject}
                     onChange={(e) => setForm({ ...form, subject: e.target.value })}
                     className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:border-black text-sm bg-white"
@@ -134,11 +133,11 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-black mb-2">Mensaje</label>
+                  <label className="block text-sm font-semibold text-black mb-2">Message</label>
                   <textarea
                     rows={4}
                     required
-                    placeholder="Hola, me gustaría consultar sobre..."
+                    placeholder="Hi! I'd like to ask about..."
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="w-full border border-gray-300 rounded-xl p-4 outline-none focus:border-black text-sm bg-white resize-none"
@@ -149,7 +148,7 @@ export default function ContactPage() {
                   type="submit"
                   className="bg-[#B88E2F] hover:bg-[#a07a27] text-white font-medium px-12 py-3.5 rounded-md transition-colors text-sm shadow-sm cursor-pointer"
                 >
-                  Enviar Mensaje
+                  Send Message
                 </button>
               </form>
             )}

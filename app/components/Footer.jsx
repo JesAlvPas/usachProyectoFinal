@@ -11,47 +11,47 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center items-start">
 
 
-          {/* TITULO */}
+          {/*LOGO Y UBICACIÓN */}
 
           <div className="flex flex-col items-center">
             <Image
               src="/img/Navbar/Logo.svg"
-              alt="Logo de la empresa"
+              alt="Company logo"
               width={150}
               height={40}
               priority
             />
-            <p className="text-gray-500">
-              Región Metropolitana - Santiago de Chile
+            <p className="text-gray-500 mt-2 text-sm">
+              Santiago Metropolitan Region, Chile
             </p>
           </div>
 
 
-          {/*Links*/}
+          {/* ENLACES */}
 
           <div className="flex flex-col items-center">
             <h6 className="text-gray-400 font-bold mb-3 text-sm uppercase tracking-wider">
-              Link
+              Links
             </h6>
-            <ul className="space-y-2">
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/" className="text-gray-700 hover:text-black transition-colors">
-                  Inicio
+                  Home
                 </Link>
               </li>
               <li>
                 <Link href="/product" className="text-gray-700 hover:text-black transition-colors">
-                  Productos
+                  Products
                 </Link>
               </li>
               <li>
                 <Link href="/nosotros" className="text-gray-700 hover:text-black transition-colors">
-                  Nosotros
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contacto" className="text-gray-700 hover:text-black transition-colors">
-                  Contacto
+                <Link href="/contact" className="text-gray-700 hover:text-black transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -61,8 +61,11 @@ function Footer() {
 
         <hr className="my-8 border-gray-200" />
 
+
+        {/* DERECHOS DE AUTOR */}
+
         <p className="text-gray-500 text-sm text-center">
-          2026 MARCA. Todos los derechos reservados.
+          2026 BRAND. All rights reserved.
         </p>
       </div>
     </footer>

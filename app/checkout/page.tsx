@@ -17,7 +17,7 @@ export default function CheckoutPage() {
     <div className="bg-white font-sans text-gray-800 w-full">
       
 
-      {/*HERO*/}
+      {/* HERO */}
 
       <div className="relative h-60 w-full flex flex-col items-center justify-center bg-[url('/hero.avif')] bg-cover bg-center">
         <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
@@ -31,35 +31,37 @@ export default function CheckoutPage() {
         </div>
       </div>
 
-
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 pb-16">
         <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           
+
+          {/* DETALLES DE FACTURACIÓN */}
+
           <div className="w-full">
             <div className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-semibold text-black mb-2">Nombre</label>
+                  <label className="block text-xs font-semibold text-black mb-2">First Name</label>
                   <input
                     type="text"
                     required
-                    placeholder="Ej: Pedro"
+                    placeholder="e.g. John"
                     className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-black mb-2">Apellido</label>
+                  <label className="block text-xs font-semibold text-black mb-2">Last Name</label>
                   <input
                     type="text"
                     required
-                    placeholder="Ej: Perez"
+                    placeholder="e.g. Doe"
                     className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-black mb-2">Región</label>
+                <label className="block text-xs font-semibold text-black mb-2">Region / State</label>
                 <select className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm">
                   <option value="RM">Metropolitana de Santiago</option>
                   <option value="AP">Arica y Parinacota</option>
@@ -73,41 +75,41 @@ export default function CheckoutPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-black mb-2">Dirección</label>
+                <label className="block text-xs font-semibold text-black mb-2">Street Address</label>
                 <input
                   type="text"
                   required
-                  placeholder="Ej: Santiago centro, calle portugal 888 Depto 502"
+                  placeholder="e.g. 123 Main Street, Apt 4B"
                   className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-black mb-2">Código Postal</label>
+                <label className="block text-xs font-semibold text-black mb-2">ZIP Code</label>
                 <input
                   type="text"
                   required
-                  placeholder="Ej: 7750000"
+                  placeholder="e.g. 7750000"
                   className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-black mb-2">Teléfono</label>
+                <label className="block text-xs font-semibold text-black mb-2">Phone Number</label>
                 <input
                   type="tel"
                   required
-                  placeholder="Ej: +56 999999999"
+                  placeholder="e.g. +56 999999999"
                   className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-black mb-2">Email</label>
+                <label className="block text-xs font-semibold text-black mb-2">Email Address</label>
                 <input
                   type="email"
                   required
-                  placeholder="Ej: usuario@correo.com"
+                  placeholder="e.g. user@email.com"
                   className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm"
                 />
               </div>
@@ -115,7 +117,7 @@ export default function CheckoutPage() {
               <div>
                 <input
                   type="text"
-                  placeholder="Ej: Comentario Adicional (opcional)"
+                  placeholder="Additional Information (optional)"
                   className="w-full border border-gray-300 rounded-xl p-3 outline-none focus:border-black bg-white text-sm mt-2"
                 />
               </div>
@@ -123,11 +125,11 @@ export default function CheckoutPage() {
           </div>
 
 
-          {/* PAGO */}
+          {/*PEDIDO Y PAGO */}
 
           <div className="w-full pt-1">
             <div className="flex justify-between font-bold text-lg text-black mb-4">
-              <span>Producto</span>
+              <span>Product</span>
               <span>Subtotal</span>
             </div>
 
@@ -142,13 +144,13 @@ export default function CheckoutPage() {
                         <span className="text-black font-bold">⨉ {qty}</span>
                       </span>
                       <span className="text-black font-medium">
-                        CLP. {(item.price * qty * 1000).toLocaleString('es-CL')}
+                        CLP {(item.price * qty * 1000).toLocaleString('es-CL')}
                       </span>
                     </div>
                   );
                 })
               ) : (
-                <p className="text-gray-400 text-sm italic">Tu carrito está vacío.</p>
+                <p className="text-gray-400 text-sm italic">Your cart is empty.</p>
               )}
             </div>
 
@@ -159,19 +161,19 @@ export default function CheckoutPage() {
               <div className="flex justify-between text-sm">
                 <span className="font-normal text-black">Subtotal</span>
                 <span className="text-gray-500 font-medium">
-                  CLP. {(subtotal * 1000).toLocaleString('es-CL')}
+                  CLP {(subtotal * 1000).toLocaleString('es-CL')}
                 </span>
               </div>
               <div className="flex justify-between items-center">
                 <span className="font-normal text-black">Total</span>
                 <span className="text-[#B88E2F] text-xl font-bold">
-                  CLP. {(subtotal * 1000).toLocaleString('es-CL')}
+                  CLP {(subtotal * 1000).toLocaleString('es-CL')}
                 </span>
               </div>
             </div>
 
 
-            {/* METODO DE PAGO */}
+            {/* MÉTODOS DE PAGO */}
 
             <div className="space-y-3 mb-6 text-sm">
               <div>
@@ -184,7 +186,7 @@ export default function CheckoutPage() {
                     onChange={() => setPaymentMethod('bank')}
                     className="accent-black w-3.5 h-3.5"
                   />
-                  Transferencia Bancaria Directa
+                  Direct Bank Transfer
                 </label>
               </div>
 
@@ -198,7 +200,7 @@ export default function CheckoutPage() {
                     onChange={() => setPaymentMethod('cod')}
                     className="accent-black w-3.5 h-3.5"
                   />
-                  Efectivo
+                  Cash on Delivery
                 </label>
               </div>
             </div>
@@ -206,9 +208,9 @@ export default function CheckoutPage() {
             <div className="flex justify-center mt-6">
               <button
                 type="submit"
-                className="w-full sm:w-3/4 py-3.5 border border-black rounded-xl text-black font-medium text-sm hover:bg-black hover:text-white transition-colors text-center"
+                className="w-full sm:w-3/4 py-3.5 border border-black rounded-xl text-black font-medium text-sm hover:bg-black hover:text-white transition-colors text-center cursor-pointer"
               >
-                Realizar pedido
+                Place Order
               </button>
             </div>
 
