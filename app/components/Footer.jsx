@@ -45,11 +45,6 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/nosotros" className="text-gray-700 hover:text-black transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-gray-700 hover:text-black transition-colors">
                   Contact
                 </Link>
