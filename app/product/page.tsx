@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import BannerProduct from '../components/BannerProduct.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
 import Pagination from '../components/Pagination.jsx';
@@ -6,7 +7,28 @@ import { ProductGridSkeleton } from '../components/ProductCardSkeleton.jsx';
 import { getProducts } from '../API/Products.js';
 
 
-// Obtencion y renderizar los productos
+export const metadata: Metadata = {
+  title: "Products | Furniro",
+  description: "Explore Furniro's complete catalog: technology, fashion, home, beauty, and more, all in one place.",
+  openGraph: {
+    title: "Products | Furniro",
+    description: "Explore Furniro's complete catalog: technology, fashion, home, beauty, and more, all in one place.",
+    url: "/product",
+    siteName: "Furniro",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Furniro - Catálogo de productos",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+};
+
+
 
 async function ProductListContent({ currentPage }: { currentPage: number }) {
   const LIMIT = 12;
@@ -16,7 +38,7 @@ async function ProductListContent({ currentPage }: { currentPage: number }) {
   const totalPages = Math.ceil(totalProducts / LIMIT);
 
 
-  // Mensaje cuando la lista esté vacía
+
 
   if (productList.length === 0) {
     return (
@@ -35,7 +57,7 @@ async function ProductListContent({ currentPage }: { currentPage: number }) {
 }
 
 
-// Vista principal de Productos
+
 
 export default async function Product({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
   const resolvedParams = await searchParams;

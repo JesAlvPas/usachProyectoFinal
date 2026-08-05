@@ -36,7 +36,6 @@ function Header() {
           <nav className="hidden md:flex space-x-8 font-medium text-gray-700">
             <Link href="/" className="hover:text-black transition-colors">Home</Link>
             <Link href="/product" className="hover:text-black transition-colors">Products</Link>
-            <Link href="/nosotros" className="hover:text-black transition-colors">About Us</Link>
             <Link href="/contact" className="hover:text-black transition-colors">Contact</Link>
           </nav>
 
@@ -88,7 +87,6 @@ function Header() {
           <nav className="md:hidden pb-4 pt-2 space-y-2 border-t border-gray-100">
             <Link href="/" className="block py-1 text-gray-700 hover:text-black">Home</Link>
             <Link href="/product" className="block py-1 text-gray-700 hover:text-black">Products</Link>
-            <Link href="/nosotros" className="block py-1 text-gray-700 hover:text-black">About Us</Link>
             <Link href="/contact" className="block py-1 text-gray-700 hover:text-black">Contact</Link>
           </nav>
         )}

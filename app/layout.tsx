@@ -18,8 +18,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MARCA - E-Commerce",
-  description: "Proyecto Final USACH",
+  title: "Furniro",
+  description: "Furniro - Your online store with everything you need: technology, fashion, home, beauty, and more, all in one place.",
+  metadataBase: new URL("https://tu-dominio-o-vercel-app.vercel.app"),
+  openGraph: {
+    title: "Furniro",
+    description: "Furniro - Your online store with everything you need: technology, fashion, home, beauty, and more, all in one place.",
+    url: "https://tu-dominio-o-vercel-app.vercel.app",
+    siteName: "Furniro",
+    images: [
+      {
+        url: "/img/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Furniro - Tienda online",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="bg-white">
