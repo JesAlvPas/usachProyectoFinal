@@ -10,10 +10,27 @@ export async function getProducts(page = 1, limit = 12) {
     }
 
     const data = await res.json();
-    // Devuelve el objeto completo con { products, total, skip, limit }
     return data;
   } catch (error) {
     console.error("Fetch Error:", error);
     return { products: [], total: 0 };
+  }
+}
+
+export async function getProductById(id) {
+  try {
+    const res = await fetch(`https://dummyjson.com/products/${id}`, {
+      next: { revalidate: 3600 }
+    });
+
+    if (!res.ok) {
+      return null;
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch Error:", error);
+    return null;
   }
 }
